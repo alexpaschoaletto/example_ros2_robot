@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!--
+        Este arquivo especifica a interface
+        do robô com o Gazebo. O plugin
+        diff_drive serve para que o robô
+        obedeça a comandos vindos do tópico
+        cmd_vel. 
+    -->
+
+    <gazebo>
+        <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
+            
+            <!-- elementos motrizes -->
+            <left_joint>left_wheel_joint</left_joint>
+            <right_joint>right_wheel_joint</right_joint>
+            <wheel_separation>0.28</wheel_separation>
+            <wheel_diameter>0.1</wheel_diameter>
+
+            <!-- valores máximos -->
+            <max_wheel_torque>200</max_wheel_torque>
+            <max_wheel_acceleration>10.0</max_wheel_acceleration>
+
+            <!-- payload das mensagens -->
+            <odometry_frame>odometry</odometry_frame>
+            <robot_base_frame>base_link</robot_base_frame>
+
+            <!-- tópicos das mensagens -->
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf>
+
+        </plugin>
+    </gazebo>
+
+</robot>
